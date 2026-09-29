@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Mouse+Memoirs&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-modak: 'Modak', cursive;
+  --font-mouse-memoirs: 'Mouse Memoirs', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  --color-crustora-red: #D9251D;
+  --color-crustora-dark: #21110B;
+  --color-crustora-charcoal: #2E1911;
+  --color-crustora-mustard: #F59E0B;
+  --color-crustora-mustard-light: #FCD34D;
+  --color-crustora-beige: #F6EADB;
+  --color-crustora-cream: #FFFBF5;
+  --color-crustora-green: #4D9E2E;
+  --color-crustora-orange: #EA580C;
+}
+
+:root {
+  --background: #F6EADB;
+  --foreground: #21110B;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Custom Typography Utilities */
+.font-modak {
+  font-family: 'Modak', cursive;
+}
+
+.font-mouse-memoirs {
+  font-family: 'Mouse Memoirs', sans-serif;
+}
+
+.text-stroke-small {
+  -webkit-text-stroke: 1.5px #21110B;
+  paint-order: stroke fill;
+}
+
+.text-stroke-180 {
+  -webkit-text-stroke: 2.5px #21110B;
+  paint-order: stroke fill;
+}
+
+.text-stroke-heavy {
+  -webkit-text-stroke: 4px #21110B;
+  paint-order: stroke fill;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 2px #FFFBF5;
+  paint-order: stroke fill;
+}
+
+.text-stroke-red {
+  -webkit-text-stroke: 2.5px #D9251D;
+  paint-order: stroke fill;
+}
+
+.text-stroke-gold {
+  -webkit-text-stroke: 2px #F59E0B;
+  paint-order: stroke fill;
+}
+
+/* Fluid responsive text scales matching Crav Burgers */
+.heading300 {
+  font-size: clamp(3rem, 11vw, 13rem);
+  line-height: 0.8;
+}
+
+.heading180 {
+  font-size: clamp(2rem, 7vw, 8rem);
+  line-height: 0.85;
+}
+
+.text60 {
+  font-size: clamp(1.2rem, 3.2vw, 3.6rem);
+}
+
+.text40 {
+  font-size: clamp(1rem, 1.8vw, 1.8rem);
+}
+
+/* Wavy and Sticker Styles */
+.sticker-container {
+  position: relative;
+  width: 100%;
+  filter: drop-shadow(0 15px 25px rgba(33, 17, 11, 0.25));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sticker-container:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6EADB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9251D;
+  border-radius: 9999px;
+  border: 2px solid #F6EADB;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EA580C;
+}
+
+/* Selection */
+::selection {
+  background: #D9251D;
+  color: #FFFBF5;
+}
