@@ -1,43 +1,79 @@
-# 🍕 CRUSTORA — Wood-Fired Artisan Sourdough Pizza
+# Crustora
 
-> **"From Napoli to Brooklyn & Beyond."**  
-> A high-performance, animation-rich artisan pizza web experience modeled after modern interactive landing craft, built with Next.js 16, App Router, Framer Motion, and Lenis Smooth Scroll.
+Crustora is a concept landing page for an artisan, wood-fired sourdough pizza brand. The goal of this project was to build a rich, interaction-heavy web experience inspired by modern boutique food websites, focusing on custom typography, kinetic motion, and tactile micro-interactions.
 
----
-
-## ✨ Features & Interactive Highlights
-
-- **🍕 3D Mouse Parallax Hero**: Ultra-sharp isolated wood-fired sourdough pizza with real-time cursor tilt and interactive stamp badges.
-- **🎧 Code-Synthesized Retro Audio Engine**: 100% procedural Web Audio API synthesizer for pops, snaps, bubble clicks, and checkout chords — zero bulky audio files loaded.
-- **🌊 Jelly Wave Animated Dividers**: Procedural SVG bezier wave transitions between thematic sections.
-- **✈️ World Tour Airplane Flight Path**: Desktop SVG flight path using native browser `getScreenCTM()` matrix transformation for pixel-perfect line adherence, plus depth layering so the plane swoops behind city photos and text.
-- **📱 Responsive Mobile Flight System**: Straight vertical dotted track with calibrated scroll-linked descent.
-- **🔍 Interactive Pizza Hotspot Explorer**: 5 clickable sensory nodes revealing blistered corniciones, San Marzano acidity, fior di latte stretch, and char balance.
-- **📦 3D Exploded Sourdough Visualizer**: Toggle between baked and exploded views of 72-hour slow cold fermentation crust, crushed volcanic sauce, and cupped pepperonis.
-- **🛒 Dynamic Pizza Box & Drawer**: Interactive menu modal, live cart calculations, free delivery progress meter, and canvas confetti celebration on checkout.
-- **📱 Mobile-First Header & Floating Thumb Pill**: Clutter-free top navbar on mobile with persistent floating quick-order cart pill and full-width dropdown navigation.
-- **🌿 Custom Magnetic Cursor**: Smooth trailing cursor with floating playful pizza ingredient particles (🌿, 🍕, 🍅).
+The project is built on Next.js 16 (App Router), Tailwind CSS v4, and Framer Motion, with smooth inertia scrolling powered by Lenis.
 
 ---
 
-## 🛠️ Tech Stack
+## Overview
 
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
+Most modern food websites either feel like generic corporate templates or simple static restaurant menus. With Crustora, I wanted to treat the web page as an interactive canvas—combining 3D parallax effects, responsive SVG curves, sound synthesis, and spring animations to create a memorable, tactile brand feel.
+
+### Key Implementation Details
+
+- **Procedural Sound Engine (`AudioEffects.ts`)**: Instead of loading static audio files (which add network overhead and latency), all UI interaction sounds—pops, snaps, crunches, and checkout chords—are generated procedurally at runtime using the native Web Audio API oscillators and gain envelopes.
+- **SVG Flight Path with Native Matrix Math (`MapSection.tsx`)**: In the World Tour section, the delivery plane tracks an SVG bezier curve using browser-native `getScreenCTM()` and `getPointAtLength()` calculations. This ensures exact pixel alignment and tangent auto-rotation on desktop viewports, with appropriate z-index layering behind foreground cards and headlines. On mobile devices, this falls back cleanly to a vertical dotted scroll track.
+- **3D Interactive Visualizers**:
+  - The hero centerpiece features real-time 3D parallax mouse tilt with smooth spring dampening.
+  - The Craft section includes an interactive pizza hotspot explorer that highlights regional ingredients (San Marzano tomatoes, Campania fior di latte, hot honey).
+  - An exploded dough-layer visualizer allows inspecting each component of the 72-hour fermentation process.
+- **Kinetic Typography & Entrance Coordination**: Letter-by-letter and word-by-word spring physics for headings. Initial hero entrance animations are synchronized with the 3-curtain preloader reveal so the titles spring up dynamically right as the page becomes visible, followed by continuous subtle wave breathing motion.
+- **Mobile-First Header & Floating Cart**: To prevent mobile navigation clipping on narrow screens (320px–390px), the top bar is kept lightweight with direct access to the menu and pizza selection, while a thumb-friendly floating cart pill handles live order tracking at the bottom right.
+
+---
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router, Turbopack)
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS v4
-- **Animation**: [Framer Motion](https://www.framer-motion.dev/)
-- **Smooth Scroll**: [Lenis](https://lenis.darkroom.engineering/)
-- **Sound**: Web Audio API (procedural synthesis)
+- **Animation**: Framer Motion
+- **Smooth Scroll**: Lenis
+- **Audio**: Web Audio API (native procedural synthesis)
 - **Icons**: Lucide React
-- **Celebration Effects**: Canvas Confetti
+- **Effects**: Canvas Confetti
 
 ---
 
-## 🚀 Getting Started
+## Project Structure
+
+```text
+src/
+├── app/
+│   ├── favicon.ico         # Custom multi-resolution pizza slice icon
+│   ├── globals.css         # Typography, design tokens, text-stroke utilities
+│   ├── icon.svg            # Scalable transparent pizza slice favicon
+│   ├── layout.tsx          # Root layout and metadata configuration
+│   └── page.tsx            # Main landing flow and cart state management
+├── components/
+│   ├── AboutSection.tsx    # 920°F stone hearth story, polaroid cards, and craft stats
+│   ├── AnimatedHeading.tsx # Staggered word-by-word spring typography
+│   ├── AudioEffects.ts     # Web Audio API sound synthesizer
+│   ├── BlobButton.tsx      # SVG organic blob action buttons with sliding text
+│   ├── CartDrawer.tsx      # Slide-out pizza box drawer with live checkout
+│   ├── CustomCursor.tsx    # Magnetic cursor with trailing artisan pizza slices
+│   ├── HeroSection.tsx     # 3D parallax hero, letter-wave animations, angled stamps
+│   ├── IngredientsSection.tsx # 3D exploded sourdough layers inspection
+│   ├── JellyWave.tsx       # Procedural bezier wave section dividers
+│   ├── MapSection.tsx      # Flight path curve tracking and city hubs tour
+│   ├── MenuModal.tsx       # Pizza catalog modal with crust dip add-ons
+│   ├── Navbar.tsx          # Responsive fixed navigation and mobile floating cart pill
+│   ├── PeelableSticker.tsx # High-contrast 3D vinyl peelable badge
+│   ├── Preloader.tsx       # 3-color curtain reveal with SVG pizza assembly
+│   ├── SensorySection.tsx  # Interactive pizza sensory hotspot explorer
+│   └── SmoothScroll.tsx    # Lenis inertia scroll provider
+└── data/
+    └── pizzaData.ts        # Pizza catalog, flavor notes, and pricing
+```
+
+---
+
+## Getting Started
 
 ### Prerequisites
 
-Ensure you have **Node.js 18+** installed.
+You need **Node.js 18+** installed on your machine.
 
 ### Installation
 
@@ -45,13 +81,13 @@ Ensure you have **Node.js 18+** installed.
 # Clone the repository
 git clone https://github.com/roy-sumon/crustora.git
 
-# Navigate into project directory
+# Move into the project directory
 cd crustora
 
 # Install dependencies
 npm install
 
-# Start development server
+# Start the local development server
 npm run dev
 ```
 
@@ -60,17 +96,21 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### Production Build
 
 ```bash
-# Compile optimized production bundle
+# Build the production bundle
 npm run build
 
-# Start production server
+# Start the production server
 npm start
 ```
 
 ---
 
-## 👨‍💻 Developer & Attribution
+## Author
 
-Developed with ❤️ and wood-fired passion by **Sumon** ([@roy-sumon](https://github.com/roy-sumon)).
+Developed by **Sumon Roy** ([@roy-sumon](https://github.com/roy-sumon)).
 
-© 2026 CRUSTORA. All rights reserved.
+---
+
+## License
+
+This project is licensed under the MIT License.
