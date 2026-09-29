@@ -63,83 +63,83 @@ export default function CustomCursor() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[999999] overflow-hidden select-none">
-      {/* Outer Ring */}
+      {/* Outer Magnetic Circle */}
       <motion.div
-        className="absolute rounded-full border-2 border-[#D9251D] mix-blend-difference"
+        className="absolute rounded-full border-2 border-[#D9251D] pointer-events-none"
         animate={{
-          x: mousePosition.x - (isHoveringClickable ? 26 : 15),
-          y: mousePosition.y - (isHoveringClickable ? 26 : 15),
-          width: isHoveringClickable ? 52 : 30,
-          height: isHoveringClickable ? 52 : 30,
-          scale: isHoveringClickable ? 1.25 : 1,
-          backgroundColor: isHoveringClickable ? "rgba(245, 158, 11, 0.3)" : "transparent",
+          x: mousePosition.x - (isHoveringClickable ? 24 : 14),
+          y: mousePosition.y - (isHoveringClickable ? 24 : 14),
+          width: isHoveringClickable ? 48 : 28,
+          height: isHoveringClickable ? 48 : 28,
+          scale: isHoveringClickable ? 1.2 : 1,
+          backgroundColor: isHoveringClickable ? "rgba(217, 37, 29, 0.15)" : "transparent",
         }}
-        transition={{ type: "spring", stiffness: 450, damping: 28 }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
       />
 
-      {/* Inner Center Dot */}
+      {/* Center Focus Dot */}
       <motion.div
-        className="absolute w-2.5 h-2.5 rounded-full bg-[#F59E0B]"
+        className="absolute w-2 h-2 rounded-full bg-[#D9251D]"
         animate={{
-          x: mousePosition.x - 5,
-          y: mousePosition.y - 5,
+          x: mousePosition.x - 4,
+          y: mousePosition.y - 4,
           scale: isHoveringClickable ? 0 : 1,
         }}
         transition={{ type: "spring", stiffness: 800, damping: 35 }}
       />
 
-      {/* Trailing Mini Pizza Ingredient 1: Basil Leaf 🌿 */}
+      {/* Trailing Pizza Slice 1: Primary Sourdough Slice 🍕 */}
       <motion.div
         style={{ x: spring1X, y: spring1Y }}
-        className="absolute text-sm drop-shadow-sm will-change-transform"
+        className="absolute text-base drop-shadow-[0_2px_6px_rgba(33,17,11,0.25)] will-change-transform leading-none"
         animate={{
-          x: 18,
-          y: -22,
-          rotate: [0, 15, -10, 0],
-          scale: isHoveringClickable ? 1.4 : 1,
+          x: 16,
+          y: -20,
+          rotate: [0, 18, -12, 0],
+          scale: isHoveringClickable ? 1.35 : 1,
         }}
         transition={{
           rotate: { duration: 3, repeat: Infinity, ease: "easeInOut" },
           scale: { duration: 0.2 },
         }}
       >
-        🌿
+        🍕
       </motion.div>
 
-      {/* Trailing Mini Pizza Ingredient 2: Pepperoni Slice 🍕 */}
+      {/* Trailing Pizza Slice 2: Mini Secondary Slice 🍕 */}
       <motion.div
         style={{ x: spring2X, y: spring2Y }}
-        className="absolute text-xs drop-shadow-sm will-change-transform"
+        className="absolute text-sm drop-shadow-[0_2px_4px_rgba(33,17,11,0.2)] will-change-transform leading-none"
         animate={{
           x: 24,
-          y: 16,
-          rotate: [-15, 10, -15],
-          scale: isHoveringClickable ? 1.3 : 0.9,
+          y: 12,
+          rotate: [-15, 12, -20, -15],
+          scale: isHoveringClickable ? 1.25 : 0.88,
         }}
         transition={{
-          rotate: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 },
+          rotate: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.15 },
           scale: { duration: 0.2 },
         }}
       >
         🍕
       </motion.div>
 
-      {/* Trailing Mini Pizza Ingredient 3: Cherry Tomato 🍅 */}
+      {/* Trailing Pizza Slice 3: Tiny Artisan Slice 🍕 */}
       <motion.div
         style={{ x: spring3X, y: spring3Y }}
-        className="absolute text-xs drop-shadow-sm will-change-transform"
+        className="absolute text-xs drop-shadow-[0_2px_4px_rgba(33,17,11,0.15)] will-change-transform leading-none opacity-85"
         animate={{
-          x: -24,
-          y: 18,
-          rotate: [10, -20, 10],
-          scale: isHoveringClickable ? 1.3 : 0.9,
+          x: -18,
+          y: 16,
+          rotate: [12, -18, 14, 12],
+          scale: isHoveringClickable ? 1.2 : 0.78,
         }}
         transition={{
-          rotate: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.4 },
+          rotate: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.3 },
           scale: { duration: 0.2 },
         }}
       >
-        🍅
+        🍕
       </motion.div>
     </div>
   );
