@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Flame } from "lucide-react";
+import { X, Flame, Sparkles, Award, Clock, Wheat } from "lucide-react";
 import BlobButton from "./BlobButton";
 import PeelableSticker from "./PeelableSticker";
 import { sounds } from "./AudioEffects";
@@ -18,27 +18,34 @@ export default function AboutSection({ onOrderClick }: AboutSectionProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<{
     src: string;
     title: string;
+    badge: string;
     caption: string;
   } | null>(null);
 
   const galleryItems = [
     {
-      src: "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=1000&q=80",
+      src: "/img/cities/napoli.jpg",
+      badge: "STONE HEARTH 920°F",
       title: "The 920°F Stone Blaze",
-      caption: "Applewood embers licking the handcrafted stone hearth to seal in airy blistered crusts in 70 seconds flat.",
-      rotate: "md:rotate-[5deg] max-md:-rotate-6",
+      caption: "Handcrafted stone hearth blazing at 920°F with dried applewood logs to lock in an airy, blistered crust in 70 seconds flat.",
+      rotate: "md:rotate-[3deg]",
+      tagColor: "bg-[#D9251D]",
     },
     {
-      src: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80",
-      title: "The Molten Fior di Latte Pull",
-      caption: "Hand-torn fresh buffalo mozzarella stretched to legendary heights over sweet crushed San Marzano sugo.",
-      rotate: "md:rotate-[-5deg] max-md:translate-y-[-2vw] md:z-10",
+      src: "/img/cities/newyork.jpg",
+      badge: "BUFFALO MOZZARELLA",
+      title: "Molten Fior Di Latte",
+      caption: "Hand-torn fresh whole milk mozzarella stretching to creamy molten lakes over sweet crushed San Marzano volcanic tomatoes.",
+      rotate: "md:rotate-[-3deg] md:z-10",
+      tagColor: "bg-[#F59E0B]",
     },
     {
-      src: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=1000&q=80",
-      title: "The 72H Sourdough Cornicione",
-      caption: "Airy honeycomb crumb structure born from a 14-year-old wild mother starter fermented in chilled mountain rooms.",
-      rotate: "md:rotate-[7deg] max-md:rotate-6",
+      src: "/img/cities/london.jpg",
+      badge: "14YR WILD MOTHER",
+      title: "72H Leopard Cornicione",
+      caption: "Natural honeycomb crumb structure born from 72-hour slow cold fermentation with wild mountain sourdough starter.",
+      rotate: "md:rotate-[4deg]",
+      tagColor: "bg-[#21110B]",
     },
   ];
 
@@ -63,7 +70,7 @@ export default function AboutSection({ onOrderClick }: AboutSectionProps) {
         </AnimatedHeading>
 
         {/* Description text */}
-        <AnimatedParagraph className="text-[#21110B] text40 font-mouse-memoirs uppercase tracking-wide w-[55%] max-md:w-[90%] mt-[2vw] leading-normal mx-auto">
+        <AnimatedParagraph className="text-[#21110B] text40 font-mouse-memoirs uppercase tracking-wide w-[55%] max-md:w-[90%] mt-[2vw] leading-normal mx-auto font-semibold">
           CRUSTORA rewrites craft pizza. Honoring ancient Neapolitan roots, we bring you blistered leopard corniciones, molten artisan cheeses, and cold-fermented wild sourdough fired hot at 920°F.
         </AnimatedParagraph>
       </div>
@@ -76,50 +83,120 @@ export default function AboutSection({ onOrderClick }: AboutSectionProps) {
       </div>
 
       {/* 3 Tilted Media Cards & Peelable Vinyl Sticker */}
-      <div className="relative w-full px-[8vw] max-md:px-[4vw] pb-[6vw] max-md:pb-[14vw] flex justify-center">
+      <div className="relative w-full px-[5vw] max-md:px-[4vw] pb-[4vw] max-md:pb-[10vw]">
         {/* Peelable Vinyl Sticker floating over cards */}
-        <div className="absolute top-[-4vw] left-[6vw] max-md:top-[-10vw] max-md:left-[2vw] z-40">
+        <div className="absolute -top-10 left-[4vw] md:left-[6vw] z-30">
           <PeelableSticker
             label="CRUSTORA"
             sublabel="72H SOURDOUGH"
             badge="D.O.P. HEARTH"
-            rotateDeg={-12}
+            rotateDeg={-10}
           />
         </div>
 
-        {/* 3 Cards Container */}
-        <div className="grid grid-cols-3 gap-[2vw] justify-center items-center max-w-[75vw] max-md:max-w-full max-md:gap-[3vw]">
+        {/* Floating Decorative Artisan Badges for Extra Personality ("kichu kichu show korao") */}
+        {/* Badge Right: 100% Wood-Fired Stamp */}
+        <motion.div
+          animate={{ y: [-5, 5, -5], rotate: [8, 12, 8] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="hidden lg:flex absolute -top-8 right-[7vw] z-30 flex-col items-center bg-[#D9251D] text-[#FFFBF5] border-3 border-[#21110B] px-4 py-2 rounded-2xl shadow-xl -rotate-6 pointer-events-none"
+        >
+          <div className="flex items-center gap-1.5 font-modak text-base text-[#FCD34D]">
+            <Flame className="w-4 h-4 fill-[#FCD34D]" />
+            <span>920°F BLAZE</span>
+          </div>
+          <span className="font-mouse-memoirs text-xs tracking-wider uppercase text-white/90">
+            NAPOLI CERTIFIED
+          </span>
+        </motion.div>
+
+        {/* Badge Left Lower: Slow Cold Ferment Pill */}
+        <motion.div
+          animate={{ y: [6, -6, 6], rotate: [-6, -2, -6] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="hidden xl:flex absolute bottom-[6vw] -left-[1vw] z-30 items-center gap-2 bg-[#21110B] text-[#FFFBF5] border-3 border-[#F59E0B] px-4 py-2.5 rounded-full shadow-2xl pointer-events-none"
+        >
+          <Clock className="w-5 h-5 text-[#FCD34D]" />
+          <div className="text-left leading-tight">
+            <p className="font-modak text-xs text-[#FCD34D]">72-HOUR REST</p>
+            <p className="font-mouse-memoirs text-[11px] text-white/80 uppercase">ZERO ADDED SUGAR</p>
+          </div>
+        </motion.div>
+
+        {/* 3 Cards Container with Guaranteed Full Width and High Contrast */}
+        <div className="w-full max-w-[85vw] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-[2.5vw] items-stretch">
           {galleryItems.map((item, idx) => (
             <motion.div
               key={idx}
               whileHover={{
-                scale: 1.08,
+                scale: 1.04,
                 rotate: 0,
-                zIndex: 30,
+                zIndex: 35,
                 transition: { duration: 0.25 },
               }}
               onClick={() => {
                 sounds.playPop(500 + idx * 50);
                 setSelectedPhoto(item);
               }}
-              className={`h-[28vw] w-full max-md:h-[46vw] rounded-3xl overflow-hidden border-4 border-[#21110B] shadow-[0_15px_30px_rgba(33,17,11,0.3)] bg-white cursor-pointer group relative ${item.rotate}`}
+              className={`relative w-full h-[460px] md:h-[28vw] min-h-[380px] rounded-3xl overflow-hidden border-4 border-[#21110B] shadow-[0_20px_40px_rgba(33,17,11,0.35)] bg-[#21110B] cursor-pointer group flex flex-col justify-between ${item.rotate} transition-shadow duration-300 hover:shadow-[0_25px_50px_rgba(217,37,29,0.4)]`}
             >
+              {/* Background Real Wood-Fired Pizza Image */}
               <Image
                 src={item.src}
                 alt={item.title}
                 fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#21110B]/90 via-[#21110B]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-left">
-                <span className="font-modak text-lg md:text-xl text-[#FCD34D] leading-none mb-1">
+
+              {/* Gradient Scrim for Permanent Readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#21110B] via-[#21110B]/30 to-transparent pointer-events-none" />
+
+              {/* Top Pill Tag */}
+              <div className="relative z-10 p-4 flex justify-between items-start">
+                <span className={`${item.tagColor} text-white font-modak text-xs md:text-sm px-3 py-1 rounded-full uppercase tracking-wider border-2 border-[#21110B] shadow-md`}>
+                  {item.badge}
+                </span>
+                <span className="w-8 h-8 rounded-full bg-[#FFFBF5] border-2 border-[#21110B] flex items-center justify-center text-xs group-hover:rotate-45 transition-transform duration-300 shadow">
+                  ↗
+                </span>
+              </div>
+
+              {/* Bottom Info Block: Always Visible & High Contrast */}
+              <div className="relative z-10 p-5 text-left flex flex-col gap-1.5">
+                <h3 className="font-modak text-2xl md:text-3xl text-[#FCD34D] leading-none drop-shadow-sm group-hover:text-white transition-colors">
                   {item.title}
-                </span>
-                <span className="font-mouse-memoirs text-xs md:text-sm text-white/90 uppercase tracking-wider line-clamp-2">
+                </h3>
+                <p className="font-mouse-memoirs text-sm md:text-base text-white/95 uppercase tracking-wide leading-tight line-clamp-2">
                   {item.caption}
-                </span>
+                </p>
+                <div className="mt-1 flex items-center gap-1.5 text-[#FCD34D] font-mouse-memoirs text-xs uppercase tracking-widest font-bold">
+                  <span>TAP FOR DETAILS</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Live Craft Stats Strip ("kichu kichu show korao") */}
+        <div className="w-full max-w-[85vw] mx-auto mt-8 md:mt-[4vw] bg-[#FFFBF5] border-4 border-[#21110B] rounded-3xl p-4 md:p-6 shadow-[0_12px_28px_rgba(33,17,11,0.2)] grid grid-cols-2 md:grid-cols-4 gap-4 divide-y md:divide-y-0 md:divide-x divide-[#21110B]/15">
+          <div className="flex flex-col items-center justify-center p-2">
+            <span className="font-modak text-3xl md:text-4xl text-[#D9251D] leading-none">72H</span>
+            <span className="font-mouse-memoirs text-xs md:text-sm text-[#21110B] uppercase font-bold tracking-wider mt-1">Cold Fermentation</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2">
+            <span className="font-modak text-3xl md:text-4xl text-[#F59E0B] leading-none">920°F</span>
+            <span className="font-mouse-memoirs text-xs md:text-sm text-[#21110B] uppercase font-bold tracking-wider mt-1">Stone Oven Blaze</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2">
+            <span className="font-modak text-3xl md:text-4xl text-[#21110B] leading-none">70 SEC</span>
+            <span className="font-mouse-memoirs text-xs md:text-sm text-[#21110B] uppercase font-bold tracking-wider mt-1">Flash Leopard Bake</span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-2">
+            <span className="font-modak text-3xl md:text-4xl text-[#16A34A] leading-none">100%</span>
+            <span className="font-mouse-memoirs text-xs md:text-sm text-[#21110B] uppercase font-bold tracking-wider mt-1">Organic Sourdough</span>
+          </div>
         </div>
       </div>
 
@@ -128,7 +205,7 @@ export default function AboutSection({ onOrderClick }: AboutSectionProps) {
         {selectedPhoto && (
           <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
             <motion.div
-              className="fixed inset-0 bg-black/75 backdrop-blur-md cursor-pointer"
+              className="fixed inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -137,13 +214,14 @@ export default function AboutSection({ onOrderClick }: AboutSectionProps) {
 
             <motion.div
               className="relative max-w-2xl w-full bg-[#FFFBF5] rounded-3xl border-4 border-[#21110B] overflow-hidden shadow-2xl z-10"
-              initial={{ scale: 0.8, opacity: 0, y: 30 }}
+              initial={{ scale: 0.85, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.8, opacity: 0, y: 30 }}
+              exit={{ scale: 0.85, opacity: 0, y: 30 }}
             >
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-[#21110B] text-white flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"
+                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-[#21110B] text-white flex items-center justify-center hover:scale-110 transition-transform cursor-pointer shadow-lg"
+                aria-label="Close Preview"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -157,14 +235,14 @@ export default function AboutSection({ onOrderClick }: AboutSectionProps) {
                 />
               </div>
 
-              <div className="p-6 bg-[#F6EADB]">
+              <div className="p-6 bg-[#F6EADB] text-left">
                 <div className="flex items-center gap-2 mb-2">
                   <Flame className="w-6 h-6 text-[#D9251D]" />
                   <h3 className="font-modak text-3xl text-[#21110B]">
                     {selectedPhoto.title}
                   </h3>
                 </div>
-                <p className="font-mouse-memoirs text-lg uppercase tracking-wide text-[#21110B]/80">
+                <p className="font-mouse-memoirs text-lg uppercase tracking-wide text-[#21110B]/85 font-semibold leading-relaxed">
                   {selectedPhoto.caption}
                 </p>
               </div>
