@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍕 CRUSTORA — Wood-Fired Artisan Sourdough Pizza
 
-## Getting Started
+> **"From Napoli to Brooklyn & Beyond."**  
+> A high-performance, animation-rich artisan pizza web experience modeled after modern interactive landing craft, built with Next.js 16, App Router, Framer Motion, and Lenis Smooth Scroll.
 
-First, run the development server:
+---
+
+## ✨ Features & Interactive Highlights
+
+- **🍕 3D Mouse Parallax Hero**: Ultra-sharp isolated wood-fired sourdough pizza with real-time cursor tilt and interactive stamp badges.
+- **🎧 Code-Synthesized Retro Audio Engine**: 100% procedural Web Audio API synthesizer for pops, snaps, bubble clicks, and checkout chords — zero bulky audio files loaded.
+- **🌊 Jelly Wave Animated Dividers**: Procedural SVG bezier wave transitions between thematic sections.
+- **✈️ World Tour Airplane Flight Path**: Desktop SVG flight path using native browser `getScreenCTM()` matrix transformation for pixel-perfect line adherence, plus depth layering so the plane swoops behind city photos and text.
+- **📱 Responsive Mobile Flight System**: Straight vertical dotted track with calibrated scroll-linked descent.
+- **🔍 Interactive Pizza Hotspot Explorer**: 5 clickable sensory nodes revealing blistered corniciones, San Marzano acidity, fior di latte stretch, and char balance.
+- **📦 3D Exploded Sourdough Visualizer**: Toggle between baked and exploded views of 72-hour slow cold fermentation crust, crushed volcanic sauce, and cupped pepperonis.
+- **🛒 Dynamic Pizza Box & Drawer**: Interactive menu modal, live cart calculations, free delivery progress meter, and canvas confetti celebration on checkout.
+- **📱 Mobile-First Header & Floating Thumb Pill**: Clutter-free top navbar on mobile with persistent floating quick-order cart pill and full-width dropdown navigation.
+- **🌿 Custom Magnetic Cursor**: Smooth trailing cursor with floating playful pizza ingredient particles (🌿, 🍕, 🍅).
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS v4
+- **Animation**: [Framer Motion](https://www.framer-motion.dev/)
+- **Smooth Scroll**: [Lenis](https://lenis.darkroom.engineering/)
+- **Sound**: Web Audio API (procedural synthesis)
+- **Icons**: Lucide React
+- **Celebration Effects**: Canvas Confetti
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Ensure you have **Node.js 18+** installed.
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/roy-sumon/crustora.git
+
+# Navigate into project directory
+cd crustora
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Compile optimized production bundle
+npm run build
 
-## Learn More
+# Start production server
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👨‍💻 Developer & Attribution
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Developed with ❤️ and wood-fired passion by **Sumon** ([@roy-sumon](https://github.com/roy-sumon)).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2026 CRUSTORA. All rights reserved.
