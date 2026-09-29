@@ -104,7 +104,7 @@ export default function Home() {
           />
 
           {/* 1. Hero Section: "THE CRUST" + 3D Artisan Pizza */}
-          <HeroSection onOrderClick={() => setIsMenuOpen(true)} />
+          <HeroSection onOrderClick={() => setIsMenuOpen(true)} isLoaded={isLoaded} />
 
           {/* 2. About Section: "TOP ARTISAN" + 3 Tilted Cards + Peelable Sticker */}
           <AboutSection onOrderClick={() => setIsMenuOpen(true)} />
